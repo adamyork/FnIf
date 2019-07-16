@@ -28,9 +28,9 @@ public class FnIf {
     }
 
     /**
-     * @param function
-     * @param <T>
-     * @return
+     * @param function a functional interface evaluated when the binary condition is false
+     * @param <T>      the return type of the evaluation
+     * @return FnIF an instance of the the class
      */
     public <T> FnIf then(final Function<T, T> function) {
         final Optional<T> maybeResult = Optional.of(condition)
@@ -41,8 +41,8 @@ public class FnIf {
     }
 
     /**
-     * @param condition
-     * @return
+     * @param condition an additive value to further qualify the true condition
+     * @return FnIF an instance of the the class
      */
     public FnIf or(final Boolean condition) {
         return Optional.of(condition)
@@ -52,9 +52,9 @@ public class FnIf {
     }
 
     /**
-     * @param function
-     * @param <T>
-     * @return
+     * @param function a functional interface evaluated when the binary condition is false
+     * @param <T>      the return type of the evaluation
+     * @return FnIF an instance of the the class
      */
     @SuppressWarnings("unchecked")
     public <T> T orFail(final Function<T, T> function) {
@@ -62,8 +62,8 @@ public class FnIf {
     }
 
     /**
-     * @param condition
-     * @return
+     * @param condition binary value for branching logic.
+     * @return FnIF an instance of the the class
      */
     public static FnIf of(final Boolean condition) {
         return new FnIf(condition, Optional.empty());
